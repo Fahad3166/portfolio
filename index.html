@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fahad Ali | Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f0f0f;--ink-2:#444;--ink-3:#888;
+  --bg:#fff;--bg-2:#f7f7f7;
+  --red:#c8102e;--red-light:#fff0f2;--red-dark:#8b0a1f;
+  --border:rgba(0,0,0,0.08);--card-bg:#fff;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:15px}
+a{color:inherit;text-decoration:none}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:62px;
+}
+.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:28px;font-size:13px;color:var(--ink-2)}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{
+  background:var(--red);color:#fff;
+  padding:8px 20px;border-radius:100px;
+  font-size:13px;font-weight:500;transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--red-dark)}
+
+.hero{
+  padding:90px 6% 70px;
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--red-light);color:var(--red);
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;margin-bottom:22px;
+}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%}
+.hero h1{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(38px,5vw,60px);font-weight:800;
+  line-height:1.0;letter-spacing:-2.5px;
+  color:var(--ink);margin-bottom:20px;
+}
+.hero h1 span{color:var(--red)}
+.hero-sub{font-size:15px;color:var(--ink-2);line-height:1.75;margin-bottom:32px;max-width:460px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--red);color:#fff;
+  padding:12px 26px;border-radius:100px;
+  font-size:13px;font-weight:600;
+  transition:background 0.2s,transform 0.15s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-1px)}
+.btn-secondary{
+  border:1.5px solid var(--border);background:var(--bg);
+  color:var(--ink-2);padding:12px 24px;border-radius:100px;
+  font-size:13px;font-weight:500;
+  transition:border-color 0.2s,color 0.2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-secondary:hover{border-color:var(--red);color:var(--red)}
+
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.scard{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:16px;padding:22px 18px;
+}
+.scard.dark{background:var(--ink);color:#fff}
+.scard.dark .slabel{color:rgba(255,255,255,0.5)}
+.scard.red{background:var(--red);color:#fff}
+.scard.red .slabel{color:rgba(255,255,255,0.6)}
+.snum{
+  font-family:'Inter',sans-serif;font-size:36px;font-weight:800;
+  letter-spacing:-2px;line-height:1;color:var(--red);margin-bottom:4px;
+}
+.scard.dark .snum,.scard.red .snum{color:#fff}
+.slabel{font-size:11px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.sbadge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:#e8fef2;color:#0a6b3d;
+  font-size:11px;font-weight:600;padding:3px 9px;border-radius:100px;margin-top:6px;
+}
+.sbadge::before{content:'▲';font-size:8px}
+
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+
+.section{padding:72px 6%;max-width:1100px;margin:0 auto}
+.stag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);margin-bottom:10px}
+.stitle{
+  font-family:'Inter',sans-serif;font-size:clamp(26px,3.5vw,40px);
+  font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-bottom:40px;
+}
+
+/* PROJECT CARDS */
+.proj-grid{display:grid;gap:20px}
+.proj-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:20px;padding:36px;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.proj-card:hover{border-color:var(--red);transform:translateY(-2px)}
+.proj-card.featured{background:var(--ink);color:#fff;border-color:var(--ink)}
+.proj-card.featured .proj-meta{color:rgba(255,255,255,0.45)}
+.proj-card.featured .proj-desc{color:rgba(255,255,255,0.72)}
+.proj-card.featured .ptag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)}
+.proj-card.featured .plink{background:#fff;color:var(--ink)}
+.proj-card.featured .plink:hover{background:var(--red);color:#fff}
+.proj-card.featured .mval{color:#ff8fa3}
+.proj-card.featured .proj-eyebrow{color:#ff8fa3}
+
+.proj-top{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;margin-bottom:20px}
+.proj-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);margin-bottom:8px}
+.proj-title{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.5px;margin-bottom:6px}
+.proj-meta{font-size:12px;color:var(--ink-3);margin-bottom:12px}
+.proj-desc{font-size:14px;color:var(--ink-2);line-height:1.7;margin-bottom:18px}
+.ptags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.ptag{background:var(--bg-2);color:var(--ink-2);font-size:11px;font-weight:600;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:0.3px}
+.ptag.hl{background:var(--red-light);color:var(--red)}
+.metrics{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+.metric{text-align:left}
+.mval{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--red);display:block}
+.mlbl{font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.5px}
+.plink{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--red);color:#fff;
+  font-size:12px;font-weight:600;
+  padding:10px 18px;border-radius:100px;
+  transition:background 0.2s;white-space:nowrap;
+}
+.plink:hover{background:var(--red-dark)}
+
+/* PHASES */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.phase{
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px;padding:16px;
+}
+.phase-num{
+  font-family:'Inter',sans-serif;font-size:28px;font-weight:800;
+  color:var(--red);margin-bottom:4px;
+}
+.proj-card.featured .phase-num{color:#ff8fa3}
+.phase-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.phase-desc{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5}
+.phase-plain .phase-desc{color:var(--ink-2)}
+.phase-plain{border-color:var(--border)}
+.phase-plain .phase-num{color:var(--red)}
+.phase-plain .phase-title{color:var(--ink)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.skill-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:22px 18px}
+.skill-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+.si-red{background:var(--red-light)}
+.si-gray{background:#f0f0f0}
+.si-green{background:#eafaf0}
+.si-purple{background:#f3eeff}
+.si-yellow{background:#fffbea}
+.skill-name{font-weight:700;font-size:13px;margin-bottom:8px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:5px}
+.spill{background:var(--bg-2);color:var(--ink-2);font-size:11px;padding:3px 9px;border-radius:100px}
+
+/* EXP */
+.exp-list{display:grid;gap:14px}
+.exp-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:16px;padding:26px;
+  display:grid;grid-template-columns:1fr auto;gap:16px;
+}
+.exp-company{font-weight:700;font-size:15px;margin-bottom:2px}
+.exp-role{font-size:13px;color:var(--red);font-weight:600;margin-bottom:10px}
+.exp-bul{list-style:none;display:grid;gap:5px}
+.exp-bul li{font-size:13px;color:var(--ink-2);padding-left:16px;position:relative}
+.exp-bul li::before{content:'→';position:absolute;left:0;color:var(--red);font-size:11px;top:2px}
+.exp-period{font-size:12px;color:var(--ink-3);white-space:nowrap;background:var(--bg-2);padding:4px 12px;border-radius:100px;height:fit-content}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.cert-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:12px;padding:16px 18px;
+  display:flex;align-items:center;gap:12px;
+}
+.cert-dot{width:8px;height:8px;background:var(--red);border-radius:50%;flex-shrink:0}
+.cert-name{font-size:13px;font-weight:500}
+
+/* CONTACT */
+.contact-band{
+  background:var(--red);color:#fff;
+  padding:80px 6%;text-align:center;
+}
+.contact-band h2{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(30px,4vw,50px);font-weight:800;letter-spacing:-2px;margin-bottom:14px;
+}
+.contact-band p{color:rgba(255,255,255,0.75);margin-bottom:32px;font-size:15px}
+.contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.clink{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1.5px solid rgba(255,255,255,0.3);color:#fff;
+  font-size:13px;font-weight:500;padding:10px 22px;border-radius:100px;
+  transition:background 0.2s,border-color 0.2s;
+}
+.clink:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.5)}
+.clink.white{background:#fff;color:var(--red);border-color:#fff}
+.clink.white:hover{background:#ffe0e5}
+
+footer{text-align:center;padding:22px 6%;font-size:12px;color:var(--ink-3);border-top:1px solid var(--border)}
+
+/* RED ACCENT LINE */
+.red-line{width:48px;height:4px;background:var(--red);border-radius:2px;margin-bottom:16px}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;gap:40px;padding:60px 5% 40px}
+  .hero-stats{display:none}
+  .proj-top{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .exp-card{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Fahad<span>.</span></div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:fahadaliabbasi88@gmail.com" class="nav-cta">Get in touch</a>
+</nav>
+
+<section style="padding:0 6%;max-width:1100px;margin:0 auto">
+  <div class="hero">
+    <div>
+      <div class="hero-tag">Open to opportunities across Europe</div>
+      <h1>Marketing<br>that drives<br><span>real results.</span></h1>
+      <p class="hero-sub">3+ years building and executing paid media, SEO, and multi-phase campaign strategies across international markets. Currently pursuing M.Sc. Computer Science at University of Vienna.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View my work ↓</a>
+        <a href="mailto:fahadaliabbasi88@gmail.com" class="btn-secondary">fahadaliabbasi88@gmail.com</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="scard dark">
+        <div class="snum">3+</div>
+        <div class="slabel">Years experience</div>
+      </div>
+      <div class="scard">
+        <div class="snum">35%</div>
+        <div class="slabel">Organic traffic growth</div>
+        <div class="sbadge">SEO</div>
+      </div>
+      <div class="scard">
+        <div class="snum">50+</div>
+        <div class="slabel">Dealers onboarded</div>
+        <div class="sbadge">B2B</div>
+      </div>
+      <div class="scard red">
+        <div class="snum">4×</div>
+        <div class="slabel">Target ROAS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="stag">Portfolio</div>
+  <div class="stitle">Campaign work &amp; case studies</div>
+  <div class="proj-grid">
+
+    <!-- MURREE HAMLETS -->
+    <div class="proj-card featured">
+      <div class="proj-top">
+        <div>
+          <div class="proj-eyebrow">Featured · Real Estate · B2B + B2C · Pakistan</div>
+          <div class="proj-title">Murree Hamlets — Brand Launch Campaign</div>
+          <div class="proj-meta">Ghafari Marketing · January 2023 · 3-Phase Campaign · Multi-channel</div>
+        </div>
+        <a href="#" class="plink">Case study ↓</a>
+      </div>
+      <p class="proj-desc">
+        Full brand strategy and go-to-market campaign for a new real estate development in Murree. Designed and executed a three-phase campaign covering B2B dealer network activation across Pakistan and B2C brand awareness targeting domestic and overseas Pakistani audiences. Responsible for end-to-end marketing strategy, campaign architecture, ad creative direction, and performance optimization.
+      </p>
+
+      <div class="phases">
+        <div class="phase">
+          <div class="phase-num">01</div>
+          <div class="phase-title">B2B Dealer Activation</div>
+          <div class="phase-desc">Launched targeted Facebook and Instagram campaigns to recruit real estate dealers across Central Punjab, KP, FATA, and Karachi. Activated 50+ dealers who agreed to co-promote from their own pages simultaneously — multiplying reach without additional media spend.</div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">02</div>
+          <div class="phase-title">B2C Mass Awareness</div>
+          <div class="phase-desc">Ran coordinated Facebook, Instagram, Google Ads, and YouTube campaigns from both the brand page and all dealer pages at once with unified ad copy. This synchronized multi-channel approach built brand recognition at scale across domestic markets. Retargeted high-response regions (FATA, KP, Central Punjab) with tailored creatives in phase two.</div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">03</div>
+          <div class="phase-title">Overseas Pakistani Targeting</div>
+          <div class="phase-desc">Extended campaign to target overseas Pakistanis in UAE and Saudi Arabia — a high-value segment known for investing in Pakistani real estate. Ran geo-targeted Facebook and Instagram campaigns with messaging adapted for the overseas investor mindset.</div>
+        </div>
+      </div>
+
+      <div class="ptags" style="margin-top:20px">
+        <span class="ptag">Facebook Ads</span>
+        <span class="ptag">Instagram Ads</span>
+        <span class="ptag">Google Ads</span>
+        <span class="ptag">YouTube</span>
+        <span class="ptag">B2B Strategy</span>
+        <span class="ptag">B2C Strategy</span>
+        <span class="ptag">Brand Building</span>
+        <span class="ptag">Dealer Network</span>
+        <span class="ptag">Retargeting</span>
+        <span class="ptag">Geo-targeting</span>
+      </div>
+      <div class="metrics">
+        <div class="metric"><span class="mval">50+</span><span class="mlbl">Dealers onboarded</span></div>
+        <div class="metric"><span class="mval">3</span><span class="mlbl">Campaign phases</span></div>
+        <div class="metric"><span class="mval">4</span><span class="mlbl">Channels</span></div>
+        <div class="metric"><span class="mval">3</span><span class="mlbl">Markets (PK, UAE, KSA)</span></div>
+      </div>
+    </div>
+
+    <!-- TOURRADAR -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-eyebrow">Freelance Strategy · Travel & Tourism · 8 Markets</div>
+          <div class="proj-title">TourRadar × JNTO — Japan 2025 Campaign</div>
+          <div class="proj-meta">TourRadar / Japan National Tourism Organization · 6-week campaign · $30,000 budget</div>
+        </div>
+        <a href="https://github.com/Fahad3166" class="plink" target="_blank">View proposal ↗</a>
+      </div>
+      <p class="proj-desc">Full digital marketing strategy for Japan adventure tour bookings. Designed a mobile-first campaign around the "48-Hour Japan Challenge" concept across Instagram, TikTok, YouTube Shorts, and the TourRadar app. Covered paid social, paid search, influencer partnerships, and lifecycle CRM across USA, UK, Germany, Austria, Australia, France, Spain, and Italy.</p>
+      <div class="phases" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="phase phase-plain">
+          <div class="phase-num">$10K</div>
+          <div class="phase-title">Paid Social</div>
+          <div class="phase-desc" style="color:var(--ink-2)">Meta, TikTok, Instagram for awareness and lead gen</div>
+        </div>
+        <div class="phase phase-plain">
+          <div class="phase-num">$6K</div>
+          <div class="phase-title">Video Series</div>
+          <div class="phase-desc" style="color:var(--ink-2)">48-Hour Japan Challenge content production</div>
+        </div>
+        <div class="phase phase-plain">
+          <div class="phase-num">$5K</div>
+          <div class="phase-title">In-App</div>
+          <div class="phase-desc" style="color:var(--ink-2)">Push notifications and featured content</div>
+        </div>
+      </div>
+      <div class="ptags" style="margin-top:16px">
+        <span class="ptag hl">Google Ads</span>
+        <span class="ptag hl">Meta Ads</span>
+        <span class="ptag hl">TikTok</span>
+        <span class="ptag">Influencer</span>
+        <span class="ptag">GA4</span>
+        <span class="ptag">Firebase</span>
+        <span class="ptag">CRM</span>
+        <span class="ptag">$30K budget</span>
+      </div>
+      <div class="metrics">
+        <div class="metric"><span class="mval" style="color:var(--red)">4×</span><span class="mlbl">ROAS target</span></div>
+        <div class="metric"><span class="mval" style="color:var(--red)">3.5%</span><span class="mlbl">CTR goal</span></div>
+        <div class="metric"><span class="mval" style="color:var(--red)">8</span><span class="mlbl">Markets</span></div>
+        <div class="metric"><span class="mval" style="color:var(--red)">$2</span><span class="mlbl">Cost per install</span></div>
+      </div>
+    </div>
+
+    <!-- DATA ANALYTICS -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-eyebrow">Analytics · BI Dashboard · University Project</div>
+          <div class="proj-title">Sales Performance Analytics Dashboard</div>
+          <div class="proj-meta">Tools: Python · SQL · Tableau · Star Schema</div>
+        </div>
+        <a href="https://github.com/Fahad3166/-Car-Sales-Business-Intelligence-Analysis" class="plink" target="_blank">GitHub ↗</a>
+      </div>
+      <p class="proj-desc">End-to-end BI pipeline analyzing 100k+ automotive retail records. Built interactive Tableau dashboards visualizing sales KPIs, price-elasticity, and customer segment performance — the kind of reporting that informs campaign budget allocation and channel strategy decisions.</p>
+      <div class="ptags">
+        <span class="ptag hl">Tableau</span>
+        <span class="ptag hl">Python</span>
+        <span class="ptag">SQL</span>
+        <span class="ptag">ETL Pipeline</span>
+        <span class="ptag">Star Schema</span>
+        <span class="ptag">KPI Reporting</span>
+      </div>
+      <div class="metrics">
+        <div class="metric"><span class="mval" style="color:var(--red)">100k+</span><span class="mlbl">Records analyzed</span></div>
+        <div class="metric"><span class="mval" style="color:var(--red)">100%</span><span class="mlbl">Data integrity</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="stag">Capabilities</div>
+  <div class="stitle">Skills &amp; tools</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon si-red">📢</div>
+      <div class="skill-name">Paid Media</div>
+      <div class="skill-pills">
+        <span class="spill">Google Ads</span><span class="spill">Meta Ads</span>
+        <span class="spill">TikTok Ads</span><span class="spill">LinkedIn Ads</span>
+        <span class="spill">YouTube Ads</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon si-gray">🔍</div>
+      <div class="skill-name">SEO</div>
+      <div class="skill-pills">
+        <span class="spill">Technical SEO</span><span class="spill">SEMrush</span>
+        <span class="spill">Ahrefs</span><span class="spill">Screaming Frog</span>
+        <span class="spill">GSC</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon si-green">📊</div>
+      <div class="skill-name">Analytics</div>
+      <div class="skill-pills">
+        <span class="spill">GA4</span><span class="spill">Firebase</span>
+        <span class="spill">A/B Testing</span><span class="spill">CRO</span>
+        <span class="spill">Funnel Analysis</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon si-purple">🎯</div>
+      <div class="skill-name">Strategy</div>
+      <div class="skill-pills">
+        <span class="spill">Full-Funnel</span><span class="spill">B2B & B2C</span>
+        <span class="spill">Brand Building</span><span class="spill">Dealer Networks</span>
+        <span class="spill">Geo-targeting</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon si-yellow">⚙️</div>
+      <div class="skill-name">Tech & Data</div>
+      <div class="skill-pills">
+        <span class="spill">Python</span><span class="spill">SQL</span>
+        <span class="spill">Tableau</span><span class="spill">Power BI</span>
+        <span class="spill">HTML/CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="stag">Background</div>
+  <div class="stitle">Work experience</div>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">Ghafari Marketing Pvt. Ltd — Islamabad, Pakistan</div>
+        <div class="exp-role">Digital Marketing Manager</div>
+        <ul class="exp-bul">
+          <li>Designed and executed the full Murree Hamlets brand launch — B2B dealer network activation (50+ dealers) and three-phase B2C campaign across Pakistan, UAE, and Saudi Arabia</li>
+          <li>Managed Google Ads and Meta Ads across multiple markets, reducing CPC by 15% and increasing conversion rates by 20%</li>
+          <li>Grew organic traffic by 35% in 6 months through technical SEO, keyword research, and backlink strategy; led a team of 5 across full-funnel campaigns</li>
+        </ul>
+      </div>
+      <div class="exp-period">Feb 2022 – Oct 2025</div>
+    </div>
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">Sky Marketing Pvt. Ltd — Islamabad, Pakistan</div>
+        <div class="exp-role">Digital Marketing & SEO Specialist</div>
+        <ul class="exp-bul">
+          <li>Managed Google Ads and Facebook Ads campaigns increasing conversions by 20% through audience segmentation and bid optimization</li>
+          <li>Executed technical, on-page, and off-page SEO strategies driving 40% higher content engagement rates</li>
+          <li>Grew social media following by 25% and YouTube subscribers by 25% through structured content marketing</li>
+        </ul>
+      </div>
+      <div class="exp-period">Mar 2020 – Jan 2022</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTS -->
+<section class="section">
+  <div class="stag">Credentials</div>
+  <div class="stitle">Certifications</div>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-dot"></div><div class="cert-name">Google Analytics 4 (GA4)</div></div>
+    <div class="cert-card"><div class="cert-dot"></div><div class="cert-name">Social Media Marketing — Multi-Platform Ads</div></div>
+    <div class="cert-card"><div class="cert-dot"></div><div class="cert-name">Business Analyst Certification – Agile</div></div>
+    <div class="cert-card"><div class="cert-dot"></div><div class="cert-name">Advanced WordPress Certification</div></div>
+  </div>
+</section>
+
+<div class="contact-band" id="contact">
+  <h2>Let's build something<br>great together.</h2>
+  <p>Open to full-time roles, internships, and freelance projects across Europe.<br>Vienna-based and available to relocate.</p>
+  <div class="contact-links">
+    <a href="mailto:fahadaliabbasi88@gmail.com" class="clink white">fahadaliabbasi88@gmail.com</a>
+    <a href="https://linkedin.com/in/fahad-ali-6a0703154" class="clink" target="_blank">LinkedIn ↗</a>
+    <a href="https://github.com/Fahad3166" class="clink" target="_blank">GitHub ↗</a>
+  </div>
+</div>
+
+<footer>© 2026 Fahad Ali · Vienna, Austria · Performance Marketing & Data Analytics</footer>
+
+</body>
+</html>
